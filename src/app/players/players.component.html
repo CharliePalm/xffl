@@ -1,0 +1,35 @@
+<app-sidebar></app-sidebar>
+<div class="players-container">
+  <h1>
+    Players
+  </h1>
+  <form [formGroup]="form">
+    <table>
+      <tr>
+        <td *ngFor="let filter of filters">
+          <mat-checkbox labelPosition="before" [formControlName]="filter" color="primary" (change)="onFilterChange()">
+            {{filter}}
+          </mat-checkbox>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <ng-container *ngIf="players?.length">
+    <table class="players-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of filteredPlayers">
+          <td>{{player.firstName}} {{player.lastName}}</td>
+          <td>{{player.position}}</td>
+          <td [ngClass]="{freeagent:!player.owner}">{{(player.owner | teamName) ?? 'FREE AGENT'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>

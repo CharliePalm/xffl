@@ -1,0 +1,26 @@
+<ng-container *ngIf="users && currentWeek else loading;">
+  <div class="standings-container">
+    <div>
+      <table class="standings-table">
+        <tbody>
+          <tr *ngFor="let user of users; let i = index" (click)="navigateToUserPage(user)">
+            <td class="label">{{i}}.</td>
+            <div class="grid-item button">
+              <tr>
+                <td class="team-name left-align">{{ user.teamName }}</td>
+                <td class="user-name right-align pull-right">{{ user.firstName }} {{ user.lastName }}</td>
+              </tr>
+              <tr>
+                <td class="record left-align">{{ user.seasonWins }}-{{ currentWeek! - user.seasonWins! }}</td>
+                <td class="total-points right-align pull-right">{{ user.totalPoints }} total points</td>
+              </tr>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <app-loader></app-loader>
+</ng-template>

@@ -1,0 +1,53 @@
+<app-sidebar></app-sidebar>
+<div class="container">
+  <h1 class="text-center">Teams</h1>
+  <table class="button-container">
+    <tr>
+      <td *ngFor="let userData of userViewModel">
+        <button class="button" [ngClass]="{activated: currentSelection === userData.id}" (click)="setSelection(userData.id)">{{userData.teamName}}</button>
+      </td>
+    </tr>
+  </table>
+  <div class="section-container" *ngIf="currentRoster as roster else loading;">
+    <div class="roster-container">
+      <h2 class="roster-title">Active Players</h2>
+      <table class="roster-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of roster.active; let i = index" [ngClass]="{empty: !player, filled: !!player}">
+            <td>{{ player?.firstName  ?? 'EMPTY' }} {{ player?.lastName ?? '' }}</td>
+            <td>{{ player?.position ?? '' }}</td>
+            <td>{{ player?.history?.games?.[player?.history?.games?.length ?? 0]?.totalPoints ?? 0}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="roster-title">Bench Players</h2>
+      <table class="roster-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of roster.bench; let i = index">
+            <td>{{ player?.firstName  ?? 'EMPTY' }} {{ player?.lastName ?? '' }}</td>
+            <td>{{ player?.position ?? '' }}</td>
+            <td>{{ player?.history?.games?.[player?.history?.games?.length ?? 0]?.totalPoints ?? 0}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <app-loader></app-loader>
+</ng-template>

@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #fff;
+}
+
+.error-text {
+  color: #800000;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+button {
+  transition: all 0.3s ease;
+  background-color: #0d0d0d;
+  border: none;
+  border-radius: 5px;
+  background-color: #0d0d0d;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #333 !important;
+  cursor: pointer;
+}
+
+.activated {
+  background-color: #333 !important;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.empty {
+  color: #333
+}
+
+.filled {
+  font-style: italic;
+}
+
+.pull-left {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.pull-right {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+.left-align {
+  text-align: left !important;
+}
+
+.right-align {
+  text-align: right !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

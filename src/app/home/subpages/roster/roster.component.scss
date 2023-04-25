@@ -1,0 +1,84 @@
+.roster-container {
+  max-width: 800px;
+  margin: 0 auto;
+  .table-container {
+    overflow: hidden;
+  }
+}
+
+.roster-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.cancel-btn {
+  color: white !important;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.roster {
+  transition: height 0.3s ease-in-out;
+  min-height: 0px;
+  tbody tr.hidden {
+    display: none;
+  }
+  th td {
+    padding: 8px;
+  }
+  th {
+    text-align: left;
+    background-color: #333;
+    color: #fff;
+  }
+  td button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.roster-move-button {
+  margin-right: 8px;
+}
+
+.roster-fill-button {
+  padding: 8px 16px;
+  border-radius: 4
+}
+
+.selected {
+  background-color: #1a2218;
+}
+
+
+.row {
+  transition: all 0.2s ease-out;
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  &.collapsed {
+    transform: scaleY(0) translateY(-20px);
+    max-height: 0;
+    max-height: 0 !important;
+    overflow: hidden; /* add this to hide the contents */
+    padding: 0;
+    border: none;
+    transform-origin: top;
+    visibility: collapse;
+  }
+  td {
+    height: 100%; /* add this to make the cells stretch to fill the row height */
+  }
+}

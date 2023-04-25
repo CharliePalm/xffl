@@ -1,0 +1,29 @@
+<div class="matchup-container">
+  <div class="team-container team-1">
+    <h2 class="right-align pad-right">{{myTeamName}}</h2>
+    <table>
+      <tbody>
+        <tr *ngFor="let player of myTeam; let i = index" [ngClass]="{empty: !player}">
+          <td>{{player?.position || 'EMPTY'}}</td>
+          <td>{{player?.firstName || ''}} {{player?.lastName || ''}}</td>
+          <td class="right-align">{{ player?.history?.games?.[-1]?.totalPoints ?? 0}}</td>
+        </tr>
+        <tr><td></td><td></td><td class="total right-align">{{getTotal(myTeam)}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="divider"></div>
+  <div class="team-container team-2">
+    <h2 class="left-align pad-left">{{otherTeamName}}</h2>
+    <table>
+      <tbody>
+        <tr *ngFor="let player of otherTeam; let i = index" [ngClass]="{empty: !player}">
+          <td class="left-align">{{ player?.history?.games?.[-1]?.totalPoints ?? 0}}</td>
+          <td>{{player?.firstName || ''}} {{player?.lastName || ''}}</td>
+          <td>{{player?.position || 'EMPTY'}}</td>
+        </tr>
+        <tr><td class="total left-align">{{getTotal(myTeam)}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

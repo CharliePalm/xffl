@@ -1,0 +1,68 @@
+.container {
+  margin-top: 50px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #fff;
+}
+
+.button-container {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #0d0d0d;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.section-container {
+  justify-content: center;
+}
+
+.section-container {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.roster-container {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.roster-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.roster-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.roster-table td, .roster-table th {
+  padding: 8px;
+}
+
+.roster-table th {
+  text-align: left;
+  background-color: #333;
+  color: #fff;
+  margin-right: 0;
+  margin-left: 0;
+  width: 100%;
+}

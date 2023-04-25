@@ -1,0 +1,14 @@
+<button class="toggle-button" (click)="toggle()" [ngClass]="{active:expanded}">
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+</button>
+
+<aside class="sidebar" [ngClass]="{closed : !expanded}">
+  <table class="menu">
+    <tr><button [ngClass]="{activated: selected === options.Home}" class="button menu-item" (click)="home()">Home</button></tr>
+    <tr><button [ngClass]="{activated: selected === options.Players}" class="button menu-item" (click)="players()">Players</button></tr>
+    <tr><button [ngClass]="{activated: selected === options.Teams}" class="button menu-item" (click)="teams()">Teams</button></tr>
+    <tr><button [ngClass]="{activated: selected === options.Logout}" class="button menu-item" (click)="logout()">Logout</button></tr>
+  </table>
+</aside>

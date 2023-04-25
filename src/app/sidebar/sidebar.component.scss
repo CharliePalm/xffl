@@ -1,0 +1,80 @@
+$width__sidebar: 300px;
+
+.sidebar {
+  width: $width__sidebar;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 20px;
+  background-color: #262829;
+  opacity: 90%;
+  transition: all .2s ease-out;
+  &.closed {
+    transform: translateX(-30em);
+  }
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.menu-item {
+  margin-bottom: 10px;
+  width: 99%;
+  font-size: 18px;
+  padding: 10px;
+}
+
+
+.toggle-button {
+  width: 24px;
+  height: 18px;
+  position: fixed;
+  margin-left: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  &.active {
+    margin-left: calc($width__sidebar + 60px);
+  }
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  transition: all 0.2s ease-out;
+}
+
+.line:nth-child(1) {
+  top: 0;
+}
+
+.line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.line:nth-child(3) {
+  bottom: 0;
+}
+
+.toggle-button.active .line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 50%;
+}
+
+.toggle-button.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.toggle-button.active .line:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 50%;
+}

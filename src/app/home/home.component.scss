@@ -1,0 +1,30 @@
+.container {
+  margin-top: 40px;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  margin-bottom: 50px;
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.section-container {
+  display: flex;
+  justify-content: center;
+}
+
+:host ::ng-deep app-roster,
+:host ::ng-deep app-matchup,
+:host ::ng-deep app-standings {
+  width: 80%;
+}

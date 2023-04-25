@@ -1,0 +1,14 @@
+<app-sidebar></app-sidebar>
+<div class="container">
+  <h1>My XFFL</h1>
+  <div class="button-container">
+    <button class="button" [ngClass]="{activated: currentSection === options.Roster}" (click)="showRoster()">Roster</button>
+    <button class="button" [ngClass]="{activated: currentSection === options.Matchup}" (click)="showMatchup()">Matchup</button>
+    <button class="button" [ngClass]="{activated: currentSection === options.Standings}" (click)="showStandings()">Standings</button>
+  </div>
+  <div class="section-container">
+    <app-roster *ngIf="currentSection === options.Roster"></app-roster>
+    <app-matchup *ngIf="currentSection === options.Matchup"></app-matchup>
+    <app-standings *ngIf="currentSection === options.Standings"></app-standings>
+  </div>
+</div>

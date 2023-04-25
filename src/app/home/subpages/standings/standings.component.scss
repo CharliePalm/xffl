@@ -1,0 +1,42 @@
+.standings-table {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.grid-item {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.team-name {
+  font-weight: bold;
+  padding-right: 1rem;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.user-name {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.record {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.total-points {
+  font-size: 14px;
+  margin-top: 5px;
+}

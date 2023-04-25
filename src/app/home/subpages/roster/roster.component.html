@@ -1,0 +1,58 @@
+<ng-container *ngIf="myTeam as roster else loading;">
+  <div class="roster-container">
+    <h2 class="roster-title">Current Lineup</h2>
+    <table class="roster" id="roster">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Points</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of roster.active; let i = index" [ngClass]="{row: true, empty: !player, filled: !!player, selected: selectedIndex==i && selection==selector.Roster, collapsed: !shouldDisplayPlayer(player, selector.Roster, i)}">
+          <td>{{ player?.firstName  ?? 'EMPTY' }} {{ player?.lastName ?? '' }}</td>
+          <td>{{ player?.position ?? '' }}</td>
+          <td>{{ player?.history?.games?.[player?.history?.games?.length ?? 0]?.totalPoints ?? 0}}</td>
+          <td class="pull-right right-align">
+            <button *ngIf="(player || isPicking()) && !(i == selectedIndex && selection == selector.Roster)" class="button roster-move-button" (click)="move(i, selector.Roster)">MOVE</button>
+            <button *ngIf="player && !isPicking()" class="button" (click)="drop(i, selector.Roster)">DROP</button>
+            <button *ngIf="!player && !isPicking()" class="button roster-fill-button" (click)="move(i, selector.Roster)">FILL</button>
+            <button *ngIf="isPicking() && (i == selectedIndex && selection == selector.Roster)" class="button cancel-btn" (click)="cancel()">CANCEL</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-container *ngIf="shouldDisplayBench()">
+      <h2 class="roster-title">Bench</h2>
+      <table class="roster" id="bench">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Points</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of roster.bench; let i = index" [ngClass]="{row: true, empty: !player, filled: !!player, selected: selectedIndex==i && selection==selector.Bench, collapsed: !shouldDisplayPlayer(player, selector.Bench, i)}">
+            <td>{{ player?.firstName  ?? 'EMPTY' }} {{ player?.lastName ?? '' }}</td>
+            <td>{{ player?.position ?? '' }}</td>
+            <td>{{ player?.history?.games?.[player?.history?.games?.length ?? 0]?.totalPoints ?? 0}}</td>
+            <td class="pull-right right-align">
+              <button *ngIf="(player || isPicking()) && !(i == selectedIndex && selection == selector.Bench)" class="button" (click)="move(i, selector.Bench)">MOVE</button>
+              <button *ngIf="player && !isPicking()" class="button" (click)="drop(i, selector.Bench)">DROP</button>
+              <button *ngIf="!player && !isPicking()" class="button" (click)="move(i, selector.Bench)">FILL</button>
+              <button *ngIf="isPicking() && (i == selectedIndex && selection == selector.Bench)" class="button cancel-btn" (click)="cancel()">CANCEL</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <app-loader></app-loader>
+</ng-template>

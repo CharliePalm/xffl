@@ -1,0 +1,16 @@
+<div class="login-container">
+  <h1 class="title">Login</h1>
+  <form [formGroup]="ngForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" formControlName="username">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" formControlName="password" required>
+      <div *ngIf="displayError" class="error-text">
+        User not found<br>
+        Please try again<br>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!ngForm.valid">Login</button>
+  </form>
+</div>
