@@ -2,9 +2,16 @@
 
 This is the UI for the wildly popular XFFL.
 
+## Getting started
+ 
+  git clone github.com/charliepalm/xffl
+  cd xffl
+  npm i
+  npm run start
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` or `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
