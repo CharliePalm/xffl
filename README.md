@@ -1,6 +1,6 @@
 # XFFL
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+This is the UI for the wildly popular XFFL.
 
 ## Development server
 
