@@ -4,10 +4,10 @@ This is the UI for the wildly popular XFFL.
 
 ## Getting started
  
-  git clone github.com/charliepalm/xffl
-  cd xffl
-  npm i
-  npm run start
+      git clone github.com/charliepalm/xffl
+      cd xffl
+      npm i
+      npm run start
 
 ## Development server
 
